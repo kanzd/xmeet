@@ -17,14 +17,15 @@ const ChatMessage=(props)=>{
   <Row style={{margin:"1%"}}><ReactRoundedImage  image={MyPhoto} imageWidth="50"
           imageHeight="50" />
 
-           <Card.Text style={{margin:"2%"}}>
+           <Card.Text style={{marginTop:"1%",marginLeft:'2%'}}>
               Kanishk
-    </Card.Text></Row>
-  
-          <footer className="blockquote-footer">
-          {props.timestamp}
+              <footer className="blockquote-footer">
+          {props.timestamp} 01/01/2021
        
       </footer>
+    </Card.Text></Row>
+   
+         
           </Card.Header>
          
   <Card.Body>
@@ -34,10 +35,13 @@ const ChatMessage=(props)=>{
   </Badge>
   <Badge style={{margin:"1%"}} pill variant="info">
     10 Comments
-  </Badge></Card.Footer>
-    <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faThumbsUp}/> Like</Button>
-    <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faComment}/> Comment</Button>
-    <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faShare}/> Share</Button>
+  </Badge></Card.Footer >
+  <div style={{marginLeft:"3%"}}>
+  <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faThumbsUp}/> </Button>
+    <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faComment}/> </Button>
+    <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faShare}/> </Button>
+  </div>
+   
   </Card.Body>
 </Card>
           
