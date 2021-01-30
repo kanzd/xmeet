@@ -1,0 +1,42 @@
+
+ 
+ 
+ #example {
+    padding: 1rem;
+ }
+.chat{
+   justify-content: space-between;
+}
+
+.hide
+{
+   display: none;
+   margin-left: 40%;
+   
+   
+ 
+}
+.hideIcon
+{
+   margin-left: 1%;
+  
+}
+
+ .buttons
+ {
+    justify-content: space-around;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top:3%
+ }
+
+.inpuut
+{
+   border-radius: 40px;
+   border-style:inset;
+   border-color: black;
+   padding: 2%;
+}
+ .cardd{
+    width:100%;
+ }

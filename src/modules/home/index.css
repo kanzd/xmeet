@@ -1,0 +1,52 @@
+.xpand{
+    padding-top:10% ;
+    height:100%;
+    background-color: grey;
+}
+.sid
+{
+    flex:0.5;
+}
+.rig
+{
+  flex:1;
+  background-color: grey;
+  height: 700px;
+}
+.head
+{
+    width: 200%;
+}
+.fulltile
+{
+    margin:3%;
+}
+.fulltile:hover
+{
+    margin:6%;
+    background-color:aquamarine;
+    border-radius: 20%;
+    padding:10%;
+}
+.tile
+{
+    background-color: transparent;
+    width:60%;
+    margin-left: 3%;
+ 
+
+}
+.pp
+{
+    padding-top: 20%;
+    background-color: transparent;
+}
+.mad
+{
+    width: 200%;
+  
+}
+.madouter
+{
+    flex:2;
+}
