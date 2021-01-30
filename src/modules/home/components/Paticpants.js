@@ -1,32 +1,50 @@
 import react ,{Component} from "react";
-import {Card,Row,Form,Button} from "react-bootstrap";
+import {Card,Row,Form,Button,Badge} from "react-bootstrap";
 import "./Particpants.css";
-import { faUpload,faVideo,faInfo,faThumbsUp,faComment } from "@fortawesome/free-solid-svg-icons";
+import { faUpload,faVideo,faInfo,faThumbsUp,faComment,faShare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ReactRoundedImage from "react-rounded-image";
+import MyPhoto from "../../image/default.jpg";
+
 
 const ChatMessage=(props)=>{
     return(
     
-       <p className="chat" style={{marginBottom: 0}}  onMouseOver={(e)=>{
-          
-         document.getElementById(props.id).style.display="block";
-         document.getElementById(props.id).style.animation="fade_in_show 0.5s";
-       }} onMouseOut={(e)=>{
+       <p className="chat" style={{marginBottom: 0}}  >
         
-         document.getElementById(props.id).style.display="none";
-         document.getElementById(props.id).style.animation="";
-       }}>
-        
-          <Row >
-          <div style={{marginLeft:"1%"}}>{props.message} </div>
-          <div className="hide" id={props.id} > 
-             <FontAwesomeIcon className="hideIcon" height={430} icon={faThumbsUp}></FontAwesomeIcon>
-          <FontAwesomeIcon className="hideIcon" height={420} icon={faComment}></FontAwesomeIcon></div>
+        <Card>
+  <Card.Header as="h5"> 
+  <Row style={{margin:"1%"}}><ReactRoundedImage  image={MyPhoto} imageWidth="50"
+          imageHeight="50" />
+
+           <Card.Text style={{margin:"2%"}}>
+              Kanishk
+    </Card.Text></Row>
+  
+          <footer className="blockquote-footer">
+          {props.timestamp}
+       
+      </footer>
+          </Card.Header>
          
-          </Row>
-          <br/>
+  <Card.Body>
+  <Card.Title>{props.message}</Card.Title>
+     <Card.Footer> <Badge style={{margin:"1%"}} pill variant="info">
+    100 Likes
+  </Badge>
+  <Badge style={{margin:"1%"}} pill variant="info">
+    10 Comments
+  </Badge></Card.Footer>
+    <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faThumbsUp}/> Like</Button>
+    <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faComment}/> Comment</Button>
+    <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faShare}/> Share</Button>
+  </Card.Body>
+</Card>
+          
+         
+        
       
-       <small>{props.timestamp}</small></p>
+       <small></small></p>
     );
  };
  const ChatMessageHistory=(props)=>{      
