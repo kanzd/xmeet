@@ -1,7 +1,7 @@
 import react ,{Component} from "react";
-import {Card,Row,Form,Button,Badge} from "react-bootstrap";
+import {Card,Row,Form,Button,Badge,Accordion,InputGroup,FormControl,Col,ProgressBar} from "react-bootstrap";
 import "./Particpants.css";
-import { faUpload,faVideo,faInfo,faThumbsUp,faComment,faShare } from "@fortawesome/free-solid-svg-icons";
+import { faUpload,faVideo,faInfo,faThumbsUp,faComment,faShare,faImage,faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactRoundedImage from "react-rounded-image";
 import MyPhoto from "../../image/default.jpg";
@@ -36,11 +36,105 @@ const ChatMessage=(props)=>{
   <Badge style={{margin:"1%"}} pill variant="info">
     10 Comments
   </Badge></Card.Footer >
-  <div style={{marginLeft:"3%"}}>
-  <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faThumbsUp}/> </Button>
-    <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faComment}/> </Button>
+  
+  <Accordion defaultActiveKey="0" >
+  <Card>
+    <Card.Header>
+    <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faThumbsUp}/> </Button>
     <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faShare}/> </Button>
-  </div>
+  
+
+      <Accordion.Toggle as={Button} variant="link" eventKey="0" >
+  <Button className="buttonss" variant="outline-secondary"><FontAwesomeIcon icon={faComment}/> </Button>
+      </Accordion.Toggle>
+    </Card.Header>
+    <Accordion.Collapse eventKey="0">
+       <>
+       <InputGroup size="sm" className="mb-3">
+    <InputGroup.Prepend>
+      <InputGroup.Text id="inputGroup-sizing-sm">Your Comment</InputGroup.Text>
+    </InputGroup.Prepend>
+    <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+   <InputGroup.Append> <Button variant="outline-secondary">Add +</Button></InputGroup.Append>
+  </InputGroup>
+    <Card className="marginp">
+  <Card.Header as="h5">
+     <Row style={{margin:"1%"}}><ReactRoundedImage  image={MyPhoto} imageWidth="50"
+          imageHeight="50" />
+
+           <Card.Text style={{marginTop:"1%",marginLeft:'2%'}}>
+              Jhon
+              <footer className="blockquote-footer">
+          {props.timestamp} 01/01/2021
+       
+      </footer>
+    </Card.Text>
+   
+    </Row>
+    <Col><Button className='jcl' variant="primary">Add Reply</Button></Col>
+    
+   </Card.Header>
+  <Card.Body>
+   
+    <Card.Text>
+     Very Good
+    </Card.Text>
+   
+  </Card.Body>
+</Card>
+<Card className="marginp">
+  <Card.Header as="h5"><Row style={{margin:"1%"}}><ReactRoundedImage  image={MyPhoto} imageWidth="50"
+          imageHeight="50" />
+
+           <Card.Text style={{marginTop:"1%",marginLeft:'2%'}}>
+              Jhon
+              <footer className="blockquote-footer">
+          {props.timestamp} 01/01/2021
+       
+      </footer>
+    </Card.Text></Row>
+    <Col><Button className='jcl' variant="primary">Add Reply</Button></Col>
+   </Card.Header>
+  <Card.Body>
+   
+    <Card.Text>
+     Very Good
+    </Card.Text>
+   
+  </Card.Body>
+</Card>
+<Card className="marginp">
+  <Card.Header as="h5"><Row style={{margin:"1%"}}><ReactRoundedImage  image={MyPhoto} imageWidth="50"
+          imageHeight="50" />
+
+           <Card.Text style={{marginTop:"1%",marginLeft:'2%'}}>
+              Jhon
+              <footer className="blockquote-footer">
+          {props.timestamp} 01/01/2021
+       
+      </footer>
+    </Card.Text></Row>
+    <Col><Button className='jcl' variant="primary">Add Reply</Button></Col>
+   </Card.Header>
+  <Card.Body>
+   
+    <Card.Text>
+     Very Good
+    </Card.Text>
+   
+  </Card.Body>
+</Card>
+</>
+    </Accordion.Collapse>
+  </Card>
+  <Card>
+   
+    <Accordion.Collapse eventKey="1">
+      <Card.Body>Hello! I'm another body</Card.Body>
+    </Accordion.Collapse>
+  </Card>
+</Accordion>
+  
    
   </Card.Body>
 </Card>
@@ -97,7 +191,7 @@ export default class Participants extends Component
      {
         var windowStyles = {
             width:"100%",
-            height:"410px",
+            height:"600px",
             margin: '1rem auto',
             overflow:"scroll"
          };
@@ -105,9 +199,20 @@ export default class Participants extends Component
          var formStyles = {
             display: 'flex',
          };
-         
+         var inputStyles2 = {
+            flex: '1 auto',
+            width:"97%",
+            
+  
+            
+         };
          var inputStyles = {
             flex: '1 auto',
+            width:"87%",
+            borderWidth:"0px",
+            border:"none",
+            outline:"none",
+  
             
          };
          
@@ -128,26 +233,32 @@ export default class Participants extends Component
             <div >
           <div>
                <form style={formStyles} onSubmit={this.handleSubmit}>
-                  <input className="inpuut" style={inputStyles} type="text" onChange={(e)=>{
+                  <div style={inputStyles2} className="inpuut">
+                  <FontAwesomeIcon  style={{color:"#0069d9",height:20,width:30}} icon={faEdit}/><input style={inputStyles} type="text" onChange={(e)=>{
         this.setState({inputText: e.target.value});
      }} value={this.state.inputText} placeholder={"What On Your Mind"} />
          
+                  </div>
+                 
                </form>
                </div>
                <div className="buttons">
-               <Button variant="outline-success" onClick={this.handleSubmit}><FontAwesomeIcon icon={faUpload}/> Post</Button>{' '}
-               <Button variant="outline-warning" className="buttons_width"><FontAwesomeIcon icon={faVideo}/> Get Live</Button>{' '}
-               <Button variant="outline-info" className="buttons_width"><FontAwesomeIcon icon={faInfo}/> Event</Button>{' '}
+               <Button variant="outline-primary" onClick={this.handleSubmit}><FontAwesomeIcon icon={faImage}/> Photo</Button>{' '}
+               <Button variant="outline-primary" className="buttons_width"><FontAwesomeIcon icon={faVideo}/> Video </Button>{' '}
+               
                </div>
                </div>
+        
                </Card.Body>
+               
           </Card>
+          <hr class="solid"></hr>
+            <div style={windowStyles} className="ss">
            
-            <div style={windowStyles}>
-              
                <ChatMessageHistory messages={this.state.messages} />
                
             </div>
+       
             </>
          );
       }

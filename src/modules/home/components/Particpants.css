@@ -16,6 +16,20 @@
    
  
 }
+.ss::-webkit-scrollbar {
+   display: none;
+ }
+ .ss {
+   -ms-overflow-style: none;  /* IE and Edge */
+   scrollbar-width: none;  /* Firefox */
+ }
+.jcl{
+   margin: 4%;
+}
+.marginp{
+   margin-left: 10%;
+   margin-right:10%;
+}
 .buttonss{
    margin: 1%;
 }
@@ -27,19 +41,23 @@
 
  .buttons
  {
-    justify-content: space-around;
-    margin-left: 30%;
-    margin-right: 30%;
+    justify-content: left;
+    margin-left: 0.8%;
+    margin-right: 0.8%;
     margin-top:3%
  }
 
 .inpuut
 {
-   border-radius: 40px;
+   border-radius: 10px;
    border-style:inset;
    border-color: black;
-   padding: 2%;
+   padding: 1%;
 }
  .cardd{
     width:100%;
  }
+ hr.solid {
+   border-top: 3px solid #bbb;
+ }
+ 

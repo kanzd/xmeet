@@ -1,6 +1,6 @@
 import react, { Component } from "react";
 import DarkTheme, { createTheme } from 'react-dark-theme';
-import { Navbar, Nav, Form, FormControl, Button, Row, Col, Container, Card, ListGroup, Jumbotron, Image, Carousel, Tab, Tabs} from "react-bootstrap";
+import { Navbar, Nav, Form, FormControl, Button, Row, Col, Container, Card, ListGroup, Jumbotron, Image, Carousel, Tab, Tabs,Table,Badge} from "react-bootstrap";
 import "./index.css";
 import Participants from "./components/Paticpants";
 import ReactRoundedImage from "react-rounded-image";
@@ -9,31 +9,20 @@ import { faJoint,faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default class index extends Component {
   state = {};
-  lightTheme = {
-    background: 'white',
-    text: 'black',
-  }
-  darkTheme = {
-    background: 'grey',
-    text: 'white',
-  }
-  myTheme = createTheme(this.darkTheme, this.lightTheme);
+
   render() {
     return (
-      <div style={{ backgroundColor: this.myTheme.background, color: this.myTheme.text }}>
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home">XMeet</Navbar.Brand>
-          <Nav className="mr-auto">
-
-          </Nav>
-          <DarkTheme light={this.lightTheme} dark={this.darkTheme} />
-
-        </Navbar>
+      <div >
+       
 
         <Row>
           <Col className="sid">
-            <div className="xpand">
-              <Row className="py-1 px-4">
+          <Card className="my-2 mx-2">
+          <Card.Header style={{fontSize:"25px"}}>Event Name</Card.Header>
+  <Card.Body>
+ 
+  <div className="xpand">
+              <Row className="px-3">
 
                 <Carousel>
                   <Carousel.Item>
@@ -74,40 +63,85 @@ export default class index extends Component {
                 </Carousel>
 
               </Row>
-              <Row className="py-1 px-2">
+              <Row className="py-2">
                 <Col>
-                  <video width="350" height="140" controls>
+                  <video width="330" height="140" controls>
                     <source src="movie.mp4" type="video/mp4" />
                     <source src="movie.ogg" type="video/ogg" />
   Your browser does not support the video tag.
 </video>
                 </Col>
+
+              </Row>
+              <Row>
+              <Card className="text-center mx-3 my-2 w-100">
+ 
+ <Card.Body>
+   <Card.Title>Event Discription</Card.Title>
+   <Card.Text>
+     
+   </Card.Text>
+  
+ </Card.Body>
+
+</Card>
+<Card style={{width:"100%"}} className="text-center mx-3 my-2">
+ 
+  <Card.Body>
+   
+    <Card.Text>
+     <Row><Table  hover>
+  <thead>
+    <tr>
+      
+      <th>Host</th>
+      <th>Date</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+   
+  </tbody>
+</Table></Row >
+    </Card.Text>
+    <Row className="mx-2 sidebuttonss">
+    <Badge pill variant="primary" className="mx-2 buttonsbor">
+    JOIN
+  </Badge>
+  <Badge pill variant="primary" className="mx-2 buttonsbor">
+  Add to Calender
+  </Badge>
+  
+   </Row>
+    
+  </Card.Body>
+  <Card.Footer className="text-muted">2 days ago</Card.Footer>
+</Card>
               </Row>
             </div>
+  </Card.Body>
+</Card>
+            
           </Col>
           <Col className="madouter">
-            <Row className="center">
-              <Card fulid className="text-center mad">
-
-
-                <Card.Body>
-
-                  <Button variant="primary" className="mx-2"><FontAwesomeIcon icon={faJoint}/> JOIN</Button>
-                  <input className="mx-1" type="datetime-local" name="date" id="date" placeholder="Enter Date and Time" required="" readOnly />
-
-                  <Button variant="primary" className="mx-2"><FontAwesomeIcon icon={faCalendar}/> Add to Calender</Button>
-
-                </Card.Body>
-
-
-              </Card>
-            </Row>
-            <Row>
+          
+             
+            
+            <Row className="mx-2 my-2 ">
               <Participants />
             </Row>
           </Col>
-          <div className="rig">
-            <Col >
+          <div className="rig my-2 mx-2">
+          <Card>
+  
+  <Card.Body>
+  <Col >
               {/* <Card style={{ width: '18rem' }}>
   <Card.Header>Meeting scheduled</Card.Header>
   <ListGroup variant="flush">
@@ -117,10 +151,14 @@ export default class index extends Component {
   </ListGroup>
 </Card> */}
               <Nav justify variant="tabs" >
-              
-
+               
               <Nav.Item>
-    <h3>X Chat</h3>
+              <Form.Group controlId="formBasicEmail">
+   
+    <Form.Control type="text" placeholder="Search Message" />
+    
+  </Form.Group>
+
   </Nav.Item>
               </Nav>
               <ListGroup className="pp">
@@ -131,10 +169,13 @@ export default class index extends Component {
 
               </ListGroup>
             </Col>
+  </Card.Body>
+</Card>
+           
           </div>
         </Row>
 
-
+        
 
       </div>
     );

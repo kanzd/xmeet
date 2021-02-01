@@ -1,17 +1,18 @@
 .xpand{
-    padding-top:10% ;
+  
     height:100%;
-    background-color: grey;
+ 
 }
 .sid
 {
     flex:0.5;
 }
+
 .rig
 {
   flex:1;
-  background-color: grey;
-  height: 700px;
+
+  height: 100%;
 }
 .head
 {
@@ -41,12 +42,23 @@
     padding-top: 20%;
     background-color: transparent;
 }
-.mad
-{
-    width: 200%;
-  
-}
+
 .madouter
 {
     flex:2;
+}
+.sidebuttonss
+{
+    justify-content: center;
+
+}
+
+.buttonsbor
+{
+  cursor: pointer !important;
+
+
+}
+.buttonsbor:hover{
+    cursor: pointer !important;
 }
