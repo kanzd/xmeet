@@ -7,18 +7,22 @@ import ReactRoundedImage from "react-rounded-image";
 import MyPhoto from "../image/default.jpg";
 import { faJoint,faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-export default class index extends Component {
-  state = {};
+import Chat from "./components/chat/index";
 
+export default class index extends Component {
+  state = {
+    chatsOpened:[],
+  };
+  
   render() {
     return (
       <div >
-       
-
+     
+      
         <Row>
           <Col className="sid">
           <Card className="my-2 mx-2">
-          <Card.Header style={{fontSize:"25px"}}>Event Name</Card.Header>
+          <Card.Header style={{fontSize:"20px"}}>Event Name</Card.Header>
   <Card.Body>
  
   <div className="xpand">
@@ -162,10 +166,42 @@ export default class index extends Component {
   </Nav.Item>
               </Nav>
               <ListGroup className="pp">
-                <Row className="fulltile"><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Jhon</ListGroup.Item></Row>
-                <Row className="fulltile"><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Rashi</ListGroup.Item></Row>
-                <Row className="fulltile"><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Harsh</ListGroup.Item></Row>
-                <Row className="fulltile"><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Kanishk</ListGroup.Item></Row>
+                <Row className="fulltile" onClick={(e)=>{
+                var Chats = this.state.chatsOpened;
+                Chats.push({
+                  name:"kanishk",
+                  openend:false,
+
+                });
+                this.setState({chatsOpened:Chats});
+                }}><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Jhon</ListGroup.Item></Row>
+                <Row className="fulltile" onClick={(e)=>{
+                var Chats = this.state.chatsOpened;
+                Chats.push({
+                  name:"kanishk",
+                  openend:false,
+                  
+                });
+                this.setState({chatsOpened:Chats});
+                }}><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Rashi</ListGroup.Item></Row>
+                <Row className="fulltile" onClick={(e)=>{
+                var Chats = this.state.chatsOpened;
+                Chats.push({
+                  name:"kanishk",
+                  openend:false,
+                  
+                });
+                this.setState({chatsOpened:Chats});
+                }}><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Harsh</ListGroup.Item></Row>
+                <Row className="fulltile" onClick={(e)=>{
+                var Chats = this.state.chatsOpened;
+                Chats.push({
+                  name:"kanishk",
+                  openend:false,
+                  
+                });
+                this.setState({chatsOpened:Chats});
+                }}><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Kanishk</ListGroup.Item></Row>
 
               </ListGroup>
             </Col>
@@ -173,9 +209,25 @@ export default class index extends Component {
 </Card>
            
           </div>
+         
         </Row>
+       {this.state.chatsOpened.map((value,index)=>(<div  style={
+          {
+   width: "25%",
+ float:"left",
 
-        
+   position: "fixed",
+   
+ 
+   left: `${(75-(index*4))}%`,
+   top: `${this.state.chatsOpened[index].openend?"47":"90"}%`,
+ }}> <Chat onchange={()=>{
+   var chat = this.state.chatsOpened;
+   chat[index].openend=!chat[index].openend;
+   this.setState({chatsOpened:chat});
+ }}/></div>))}
+      
+       
 
       </div>
     );
