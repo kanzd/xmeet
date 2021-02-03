@@ -12,11 +12,12 @@ import Chat from "./components/chat/index";
 export default class index extends Component {
   state = {
     chatsOpened:[],
+    chats:[{},{},{},{},{},{},{},{}]
   };
   
   render() {
     return (
-      <div >
+      <div className="boo">
      
       
         <Row>
@@ -125,7 +126,7 @@ export default class index extends Component {
    </Row>
     
   </Card.Body>
-  <Card.Footer className="text-muted">2 days ago</Card.Footer>
+ 
 </Card>
               </Row>
             </div>
@@ -141,7 +142,7 @@ export default class index extends Component {
               <Participants />
             </Row>
           </Col>
-          <div className="rig my-2 mx-2">
+          <div className="rig my-2 mx-1">
           <Card>
   
   <Card.Body>
@@ -165,8 +166,8 @@ export default class index extends Component {
 
   </Nav.Item>
               </Nav>
-              <ListGroup className="pp">
-                <Row className="fulltile" onClick={(e)=>{
+              <ListGroup className="pp ss">
+                {this.state.chats.map((value,index)=>( <Row className="fulltile" onClick={(e)=>{
                 var Chats = this.state.chatsOpened;
                 Chats.push({
                   name:"kanishk",
@@ -175,34 +176,8 @@ export default class index extends Component {
                 });
                 this.setState({chatsOpened:Chats});
                 }}><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Jhon</ListGroup.Item></Row>
-                <Row className="fulltile" onClick={(e)=>{
-                var Chats = this.state.chatsOpened;
-                Chats.push({
-                  name:"kanishk",
-                  openend:false,
-                  
-                });
-                this.setState({chatsOpened:Chats});
-                }}><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Rashi</ListGroup.Item></Row>
-                <Row className="fulltile" onClick={(e)=>{
-                var Chats = this.state.chatsOpened;
-                Chats.push({
-                  name:"kanishk",
-                  openend:false,
-                  
-                });
-                this.setState({chatsOpened:Chats});
-                }}><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Harsh</ListGroup.Item></Row>
-                <Row className="fulltile" onClick={(e)=>{
-                var Chats = this.state.chatsOpened;
-                Chats.push({
-                  name:"kanishk",
-                  openend:false,
-                  
-                });
-                this.setState({chatsOpened:Chats});
-                }}><ReactRoundedImage image={MyPhoto} imageWidth="50" imageHeight="50" /> <ListGroup.Item className="tile">Kanishk</ListGroup.Item></Row>
-
+              ))}
+               
               </ListGroup>
             </Col>
   </Card.Body>
@@ -220,7 +195,7 @@ export default class index extends Component {
    
  
    left: `${(75-(index*4))}%`,
-   top: `${this.state.chatsOpened[index].openend?"47":"90"}%`,
+   top: `${this.state.chatsOpened[index].openend?"43":"88"}%`,
  }}> <Chat onchange={()=>{
    var chat = this.state.chatsOpened;
    chat[index].openend=!chat[index].openend;

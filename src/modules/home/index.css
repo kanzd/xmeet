@@ -6,12 +6,17 @@
 .sid
 {
     flex:0.5;
+    margin-left: 2%;
 }
-
+.boo{
+    overflow-y:unset;
+    width:97%;
+    align-items: center;
+}
 .rig
 {
-  flex:1;
-
+ 
+ flex:0.9;
   height: 100%;
 }
 .head
@@ -21,28 +26,45 @@
 .fulltile
 {
     margin:3%;
+   
+    border-radius: 70px;
+    padding: 2%;
+  
+    background-color: #d1e2e6;
+   
 }
 .fulltile:hover
 {
-    margin:6%;
-    background-color:aquamarine;
-    border-radius: 20%;
-    padding:10%;
+    margin:1%;
+   background-color: #0bc4f0;
+    border-radius: 60px;
+    padding:10px;
+    cursor: pointer;
+    align-items: center;
 }
 .tile
 {
     background-color: transparent;
     width:60%;
     margin-left: 3%;
+    border-style: none;
+    
  
 
 }
 .pp
 {
-    padding-top: 20%;
-    background-color: transparent;
+    padding-top: 10%;
+    overflow: scroll;
+    height:500px;
 }
-
+.ss::-webkit-scrollbar {
+    display: none;
+  }
+  .ss {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 .madouter
 {
     flex:2;

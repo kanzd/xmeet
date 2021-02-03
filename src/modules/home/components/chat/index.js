@@ -19,7 +19,7 @@ export default class index extends Component{
 </Card>
 :<></>}
               
-      <Button style={{marginLeft:"80%",marginTop:"3%"}}
+      <Button style={{marginLeft:"80%",marginTop:"3%",borderRadius:"100px",height:"60px"}}
         onClick={() => {this.setState({open:!this.state.open});
     this.props.onchange();
     }}
